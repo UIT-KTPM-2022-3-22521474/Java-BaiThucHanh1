@@ -4,7 +4,6 @@ package BT1;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Scanner;
-import MyUtilities.*;
 
 
 public class Employee extends Person {
@@ -46,33 +45,10 @@ public class Employee extends Person {
 
         while (true) {
             try {
-                if (fullName == null) {
-                    System.out.print("Full name: ");
-                    fullName = scanner.nextLine();
-                    if (fullName == null || fullName.isEmpty()) {
-                        throw new IllegalArgumentException("Full name cannot be empty.");
-                    }
-                    if (!stringUtilities.isValidName(fullName)) {
-                        throw new IllegalArgumentException("Full name can only contain alphabetical characters.");
-                    }
-                }
-
-                if (age == 0) {
-                    System.out.print("Age: ");
-                    age = scanner.nextInt();
-                    scanner.nextLine();
-                    if (age < 18) {
-                        throw new IllegalArgumentException("Age cannot be less than 18.");
-                    }
-                }
-
-                if (address == null) {
-                    System.out.print("Address: ");
-                    address = scanner.nextLine();
-                    if (address == null || address.isEmpty()) {
-                        throw new IllegalArgumentException("Address cannot be empty.");
-                    }
-                }
+                Person person = Person.input(scanner);
+                fullName = person.getFullName();
+                age = person.getAge();
+                address = person.getAddress();
 
                 if (basicSalary == 0) {
                     System.out.print("Basic salary: $");
@@ -99,13 +75,7 @@ public class Employee extends Person {
                     scanner.nextLine();
                 }
 
-                if (e.getMessage().contains("Full name")) {
-                    fullName = null;
-                } else if (e.getMessage().contains("Age")) {
-                    age = 0;
-                } else if (e.getMessage().contains("Address")) {
-                    address = null;
-                } else if (e.getMessage().contains("Basic salary")) {
+                if (e.getMessage().contains("Basic salary")) {
                     basicSalary = 0;
                 } else if (e.getMessage().contains("Coefficient")) {
                     coefficient = 0;

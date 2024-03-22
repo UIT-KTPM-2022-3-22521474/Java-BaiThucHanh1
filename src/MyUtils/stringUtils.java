@@ -1,6 +1,6 @@
-package MyUtilities;
+package MyUtils;
 
-public class stringUtilities {
+public class stringUtils {
     public static String getOrdinal(int number) {
         int remainder10 = number % 10;
         int remainder100 = number % 100;

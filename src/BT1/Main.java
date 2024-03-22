@@ -3,20 +3,20 @@ package BT1;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import MyUtilities.*;
+import MyUtils.*;
 
 public class Main {
     public static void main(String[] args) {
         System.out.print("BT1 - Person & Employee - To Vinh Tien - 22521474.");
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\nEnter number of employees: ");
+        System.out.print("\nEnter number of employees: ");
         int numEmployees = scanner.nextInt();
         scanner.nextLine();
 
         List<Employee> employees = new ArrayList<>();
         for (int i = 0; i < numEmployees; i++) {
-            System.out.println(STR."\nEnter information of \{stringUtilities.getOrdinal(i + 1)} employee:");
+            System.out.println(STR."\nEnter information of \{stringUtils.getOrdinal(i + 1)} employee:");
             Employee employee = Employee.input(scanner);
             employees.add(employee);
         }
